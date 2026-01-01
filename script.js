@@ -1,38 +1,22 @@
-const codes = {
-  "UGCFAK": "files/CapCutLink.txt",
-  // add more like:
-  // "CODE123": "files/yourfile.zip",
-};
+const diasInput = document.getElementById("dias");
+const priceText = document.getElementById("price");
+const rechargeBtn = document.getElementById("recharge");
+const helpBtn = document.getElementById("help");
+const notify = document.getElementById("notify");
 
-const input = document.getElementById("codeInput");
-const btn = document.getElementById("redeemBtn");
-const toast = document.getElementById("toast");
-const clickSound = document.getElementById("clickSound");
+diasInput.addEventListener("input", () => {
+  const dias = Number(diasInput.value || 0);
+  priceText.textContent = (dias * 0.5).toFixed(2);
+});
 
-function showToast(text) {
-  toast.textContent = text;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2500);
-}
+rechargeBtn.addEventListener("click", () => {
+  notify.classList.add("show");
 
-btn.addEventListener("click", () => {
-  clickSound.currentTime = 0;
-  clickSound.play();
+  setTimeout(() => {
+    notify.classList.remove("show");
+  }, 3000);
+});
 
-  const code = input.value.trim().toUpperCase();
-
-  if (codes[code]) {
-    showToast("Found! Installing...");
-
-    setTimeout(() => {
-      const a = document.createElement("a");
-      a.href = codes[code];
-      a.download = "";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }, 1200);
-  } else {
-    showToast("Redemption Not Found");
-  }
+helpBtn.addEventListener("click", () => {
+  window.open("https://example.com", "_blank");
 });
