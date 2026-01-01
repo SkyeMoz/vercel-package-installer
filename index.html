@@ -2,25 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redeem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MLBB Vercel Recharge</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <h1>Redeem</h1>
-    <input
-      id="codeInput"
-      type="text"
-      placeholder="UGNGHJ - Capcut | SEN67J - ZenoDual"
-      autocomplete="off"
-    />
-    <button id="redeemBtn">Redeem</button>
+
+  <div class="app">
+    <img src="settings/logo.png" class="logo" />
+
+    <p class="sub">By Moz Studio</p>
+    <span class="prank"> 🟢 Online Service </span>
+
+    <div class="card">
+      <h3>1. Please Enter User ID</h3>
+      <input type="text" placeholder="Example: 12345678" />
+      <input type="text" placeholder="Server Zone (12345)" />
+    </div>
+
+    <div class="card">
+      <h3>2. Enter Amount of Diamonds</h3>
+      <input type="number" id="dias" placeholder="Enter diamonds" />
+      <p class="price">₱ <span id="price">0.00</span></p>
+      <input type="text" placeholder="Phone Number (Fake, does nothing)" />
+    </div>
+
+    <div class="actions">
+      <button id="help">Get Help</button>
+      <button id="recharge">Recharge</button>
+    </div>
   </div>
 
-  <div id="toast"></div>
-
-  <audio id="clickSound" src="sounds/click.mp3"></audio>
+  <!-- Notification -->
+  <div class="notify" id="notify">
+    <div class="notify-icon">💎</div>
+    <div class="notify-text">
+      <strong>Recharge Successful</strong>
+      <span>Please open Mobile Legends</span>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
